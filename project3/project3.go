@@ -33,9 +33,6 @@ func studentHandler(w http.ResponseWriter, req *http.Request) {
   case "GET":
     buf, _ := json.Marshal(students)
     w.Write(buf)
-  case "PUT":
-    buf, _ := ioutil.ReadAll(req.Body)
-    json.Unmarshal(buf, students)
   default:
     w.WriteHeader(400)
   }
@@ -47,9 +44,6 @@ func teachersHandler(w http.ResponseWriter, req *http.Request) {
   case "GET":
     buf, _ := json.Marshal(teachers)
     w.Write(buf)
-  case "PUT":
-    buf, _ := ioutil.ReadAll(req.Body)
-    json.Unmarshal(buf, teachers)
   default:
     w.WriteHeader(400)
   }
@@ -61,9 +55,6 @@ func classesHandler(w http.ResponseWriter, req *http.Request) {
   case "GET":
     buf, _ := json.Marshal(classes)
     w.Write(buf)
-  case "PUT":
-    buf, _ := ioutil.ReadAll(req.Body)
-    json.Unmarshal(buf, classes)
   default:
     w.WriteHeader(400)
   }
@@ -79,7 +70,7 @@ func stuItemHandler(w http.ResponseWriter, req *http.Request) {
       w.Write(buf)
     case "PUT":
       buf, _ := ioutil.ReadAll(req.Body)
-      json.Unmarshal(buf, students["/students/me"])
+      json.Unmarshal(buf, students[req.URL.Path])
     default:
       w.WriteHeader(400)
     }
@@ -90,7 +81,7 @@ func stuItemHandler(w http.ResponseWriter, req *http.Request) {
       w.Write(buf)
     case "PUT":
       buf, _ := ioutil.ReadAll(req.Body)
-      json.Unmarshal(buf, students["/students/walter"])
+      json.Unmarshal(buf, students[req.URL.Path])
     default:
       w.WriteHeader(400)
     }
@@ -107,7 +98,7 @@ func teachItemHandler(w http.ResponseWriter, req *http.Request) {
       w.Write(buf)
     case "PUT":
       buf, _ := ioutil.ReadAll(req.Body)
-      json.Unmarshal(buf, teachers["/teachers/ryanne"])
+      json.Unmarshal(buf, teachers[req.URL.Path])
     default:
       w.WriteHeader(400)
     }
@@ -119,7 +110,7 @@ func teachItemHandler(w http.ResponseWriter, req *http.Request) {
       w.Write(buf)
     case "PUT":
       buf, _ := ioutil.ReadAll(req.Body)
-      json.Unmarshal(buf, teachers["/teachers/sean"])
+      json.Unmarshal(buf, teachers[req.URL.Path])
     default:
       w.WriteHeader(400)
     }
@@ -136,7 +127,7 @@ func classItemHandler(w http.ResponseWriter, req *http.Request) {
       w.Write(buf)
     case "PUT":
       buf, _ := ioutil.ReadAll(req.Body)
-      json.Unmarshal(buf, classes["/classes/cs4830"])
+      json.Unmarshal(buf, classes[req.URL.Path])
     default:
       w.WriteHeader(400)
     }
@@ -148,7 +139,7 @@ func classItemHandler(w http.ResponseWriter, req *http.Request) {
       w.Write(buf)
     case "PUT":
       buf, _ := ioutil.ReadAll(req.Body)
-      json.Unmarshal(buf, classes["/classes/cs4850"])
+      json.Unmarshal(buf, classes[req.URL.Path])
     default:
       w.WriteHeader(400)
     }
