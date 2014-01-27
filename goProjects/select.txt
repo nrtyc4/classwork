@@ -1,0 +1,14 @@
+A select is like a switch statement in which the cases are communications.
+A simple example uses a second channel to tear down the server.
+
+func server(op binOp, service chan *request,
+		quit chan bool)	{
+	for {
+		select {
+		case req := <-service:
+			go run(op, req);	//don't wait
+		case <-quit:
+			return;
+		}
+	}
+}

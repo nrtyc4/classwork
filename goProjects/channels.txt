@@ -1,0 +1,12 @@
+var c chan string;
+
+c = make(chan string);
+
+c <- "Hello";	// infix send
+
+// in a different goroutine
+greeting := <-c;	// prefix recieve
+
+cc := new(chan chan string);
+
+cc <- c;	// handing off a capability

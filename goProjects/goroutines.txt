@@ -1,0 +1,11 @@
+x := longCalculation(17);	// runs too long
+
+c := make(chan int);
+func wrapper(a int, c chan int) {
+	result := longCalculation(a);
+	c <- result;
+}
+go wrapper(17, c);
+
+// do something for a while; then...
+x := <-c;

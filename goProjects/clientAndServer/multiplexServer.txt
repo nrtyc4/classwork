@@ -1,0 +1,23 @@
+type Request struct {
+	a, b	int;
+	replyc	chan int;	// reply channel inside the Request
+}
+
+type binOp func(a, b int) int
+
+func run(op binOp, req *request) {
+	req.replyc <- op(req.a, req.b)
+}
+
+func server(op binOp, service chan *request) {
+	for {
+		req := <-service;	// requests arrive here
+		go run(op, req);	// don't wait for op
+	}
+}
+
+func StartServer(op binOp) chan *request {
+	reqChan := make(chan *request);
+	go server(op, reqChan);
+	return reqChan;
+}

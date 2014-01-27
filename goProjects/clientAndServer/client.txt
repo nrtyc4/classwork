@@ -1,0 +1,14 @@
+// Start server; receive a channel on which to send requests.
+server := StartServer(
+	func(a, b int) int {return a+b});
+
+// Create requests
+req1 := &Request{23, 45, make(chan int)};
+req2 := &Request{-17, 1<<4, make(chan int)};
+
+// Send them in arbitrary order
+server <- req1;	server <- req2;
+
+// Wait for other answers in arbitrary order
+fmt.Printf("Answer2: %d\n", <-req2.replyc);
+fmt.Printf("Answer1: %d\n", <-req1.replyc);
