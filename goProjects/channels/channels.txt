@@ -1,0 +1,22 @@
+var c chan string;
+
+c = make(chan string);
+
+c <- "Hello";	// infix send
+
+// in a different goroutine
+greeting := <-c;	// prefix recieve
+
+cc := new(chan chan string);
+
+cc <- c;	// handing off a capability
+
+
+
+***Buffered channels***
+
+It's also possible to pass a second parameter to the make function when creating a channel:
+
+	c := make(chan int, 1)
+
+This creates a buffered channel with capacity of 1. Normally channels are synchronous; both sides of the channel will wait until the other side is ready. A buffered channel is asynchrounous; sending or receiving a message will not wait unless the channel is already full.
