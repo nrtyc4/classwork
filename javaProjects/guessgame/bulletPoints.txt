@@ -1,0 +1,5 @@
+-> All java code is defined in a class
+-> Things an object knows about itself are called instance variables.
+	They represent the state of an object.
+-> A class can inherit instance variables and methods from a more abstract
+	superclass.
