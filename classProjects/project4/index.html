@@ -1,0 +1,25 @@
+<!DOCTYPE html> 
+<html>
+  <body>
+    <title>Project 4</title>
+    <img id="img" src="" />  
+  
+  <script>
+
+  function jsonFlickrApi(json) {
+   
+    //store necessary variables to use in url to display img
+    var farm = json.photos.photo[0].farm;
+    var server = json.photos.photo[0].server;
+    var photoId = json.photos.photo[0].id;
+    var secret = json.photos.photo[0].secret;
+    document.getElementById("img").src="http://farm" + farm +
+      ".staticflickr.com/" + server + "/" + photoId + "_" + secret + "_n.jpg";
+  }
+  </script>
+
+  <!--this script loads the flickr request to the dom, and sends the client jsonFlickrApi as a callback function  -->
+  <script src='http://api.flickr.com/services/rest/?&method=flickr.photos.search&api_key=8060db2884b5c98d99552fd46f2dfbee&tags=tony_romo&format=json'></script>  
+    
+  </body>
+</html>
