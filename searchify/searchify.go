@@ -2,7 +2,7 @@ package main
 
 import (
 	"encoding/json"
-	"fmt" //debugging purposes for now
+	"fmt"
 	"log"
 	"net/http"
 	"strings"
