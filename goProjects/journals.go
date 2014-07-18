@@ -3,17 +3,17 @@ package main
 import "fmt"
 
 type Journal struct {
-	bay string
-	size int
-	color string
+	Bay string
+	Size int
+	Color string
 }
 
 func main() {
 	journal := new(Journal)
 
-	journal.bay = "leather"
-	journal.size = 7
-	journal.color = "light brown"	
+	journal.Bay = "leather"
+	journal.Size = 7
+	journal.Color = "light brown"	
 
-	fmt.Printf("This journal is:")
+	fmt.Println("This journal is:")
 }
