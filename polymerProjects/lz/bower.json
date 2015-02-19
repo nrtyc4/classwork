@@ -1,0 +1,22 @@
+{
+  "name": "LZ",
+  "version": "0.0.0",
+  "homepage": "https://github.com/nrtyc4/projects",
+  "authors": [
+    "nrtyc4 <natthompson72@gmail.com>"
+  ],
+  "description": "Personal Home Page called LZ (Landing Zone)",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.5.4",
+    "core-toolbar": "Polymer/core-toolbar#~0.5.4",
+    "core-header-panel": "Polymer/core-header-panel#~0.5.4"
+  }
+}
